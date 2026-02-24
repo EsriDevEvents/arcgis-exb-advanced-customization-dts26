@@ -1,2 +1,4 @@
-# arcgis-exb-advanced-customization-dts26
-Sample code from the ArcGIS Experience Builder: Advanced Customization technical session at Dev &amp; Tech Summit 2026.
+# ArcGIS Experience Builder: Advanced Customization
+
+2026 Esri Developer & Techology Summit
+Presenters: Gavin Rehkemper, Paige Waterbury, and Wei Ying
