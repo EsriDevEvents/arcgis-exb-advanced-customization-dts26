@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -103,12 +103,260 @@
           </p>
         </section>
 
+        <!-- Gavin: -->
+        <section data-background="images/2026/dev/03.jpg">
+          <h2 style="text-align: left">Deployment</h2>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Two patterns
+
+            1. ArcGIS Enterprise
+            2. Developer Edition > host on a web server
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## ArcGIS Enterprise
+
+            1. Deploy custom widgets to Experience Builder within ArcGIS Enterprise
+            2. Users within ArcGIS Enterprise can build Experiences with those custom widgets
+            3. ArcGIS Enterprise 11.0 or higher
+            - Detailed instructions (blog post): [links.esri.com/exb-add-custom-widgets-blog](https://links.esri.com/exb-add-custom-widgets-blog)
+          </script>
+        </section>
+
+        <section data-background="images/2026/dev/04.jpg">
+          <h2 style="text-align: right">
+            Deploy custom widget to ArcGIS Enterprise
+          </h2>
+          <p style="text-align: right; color: var(--r-section-subhead-color)">
+            Demo
+          </p>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Developer Edition
+
+            1. Build the Experience with your custom widgets
+            2. Download as ZIP
+
+            ![](images/download.png)
+
+            3. Unzip files
+            4. Add `clientId` to `cdn/{app-string}/config.json`
+            5. Host the files on a web server
+          </script>
+        </section>
+
+        <section data-background="images/2026/dev/03.jpg">
+          <h2 style="text-align: left">Deployment automation</h2>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Why automation?
+
+            - Faster builds
+            - Consistent builds
+            - Test integration
+            - The "reference" application
+            - Branch deployments
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## How to automate
+
+            - Store the reference version of each app
+            - Auto-build using your CI/CD env of choice:
+              - GitHub Actions*
+              - Azure DevOps
+              - AWS CodePipeline
+              - GitLab Actions
+              - Jenkins
+              - Etc.
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Folder structure
+
+            - manifest.json
+            - apps/
+              - 0/
+              - 1/
+              - zero/
+              - one/
+            - widgets/
+              - custom-widget-1/
+              - custom-widget-2/
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Auto-build
+
+            - Create file:
+
+              `.github/workflows/build-app.yml`
+
+            - Demo repo:
+
+              [github.com/gavinr/experience-builder-devops-example](https://github.com/gavinr/experience-builder-devops-example/)
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Auto-build outcomes
+
+            - Consistent outputs
+            - Easier version management (via Git branching)
+            - Quicker bug investigations (is it happening on the reference app?)
+            - More organized management of app config versions
+            - Quickly/easily share app both within & outside of team/organization
+          </script>
+        </section>
+
+        <section data-background="images/2026/dev/03.jpg">
+          <h2 style="text-align: left">Data Sources</h2>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Data sources: what are they?
+
+            - How a widget accesses data
+            - How widgets share data
+            - Contains: schema, records, child (or parent)
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Commonly used
+
+            - `DataSourceManager`
+            - `<DataSourceComponent />`
+            - Types:
+              - `MapServiceDataSource` / `FeatureLayerDataSource`
+              - `WebMapDataSource` / `WebSceneDataSource`
+              - `FeatureLayerDataSource`, `ImageryLayerDataSource`, etc..
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Data views
+
+            - Think of like a **view** of a relational database
+            - Same interface as `DataSource`, but with a few extra properties
+          </script>
+        </section>
+
+        <section data-background="images/2026/dev/04.jpg">
+          <h2 style="text-align: right">Data views</h2>
+          <p style="text-align: right; color: var(--r-section-subhead-color)">
+            Demo
+          </p>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Selection data source
+
+            - Data view of the main data source
+            - Identified by `${mainDataSourceId}-selection`
+          </script>
+        </section>
+
+        <section data-background="images/2026/dev/04.jpg">
+          <h2 style="text-align: right">Selection data source</h2>
+          <p style="text-align: right; color: var(--r-section-subhead-color)">
+            Demo
+          </p>
+        </section>
+
+        <section data-background="images/2026/dev/03.jpg">
+          <h2 style="text-align: left">Widget communication</h2>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Widget communication methods
+
+            - Common data sources
+            - Data Actions
+            - Message subscribing
+            - Redux
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Data Actions
+
+            Place an entry in the "Actions" menu
+
+            ![](images/data-action-table.png)
+
+            [Demo](https://gavinr-maps.github.io/arcgis-experience-builder-sdk-resources-demos/show-record-id/) ([code](https://github.com/gavinr-maps/arcgis-experience-builder-sdk-resources-demos/blob/master/widgets/show-record-id/src/data-actions/show-id.ts))
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Message Subscribing
+
+            Place an entry in the "Message Actions" configuration panel for other widgets.
+
+            ![](images/message-subscriber.png)
+
+            [Demo](https://gavinr-maps.github.io/arcgis-experience-builder-sdk-resources-demos/message-subscriber/) ([code](https://github.com/gavinr-maps/arcgis-experience-builder-sdk-resources-demos/blob/master/widgets/message-subscriber/src/actions/query-action.ts))
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Redux
+
+            - Most customizable and configurable option
+            - Great for communication between 2 custom widgets that you control both from.
+            - See "redux" widget in the Experience Builder samples repo:
+
+            [developers.arcgis.com/experience-builder/sample-code/widgets/redux/](https://developers.arcgis.com/experience-builder/sample-code/widgets/redux/)
+          </script>
+        </section>
+
+        <section data-markdown data-background="images/2026/dev/02.jpg">
+          <script type="text/template">
+            ## Session Resources
+
+            |  |  |
+            | --- | --- |
+            | Code and slides from this presentation | [esriurl.com/exb-ac-dts26](https://esriurl.com/exb-ac-dts26) |
+            | Experience Builder developer documentation | [developers.arcgis.com/experience-builder](https://developers.arcgis.com/experience-builder/) |
+            | Esri Community: Experience Builder | [community.esri.com/t5/arcgis-experience-builder/ct-p/arcgis-experience-builder](https://community.esri.com/t5/arcgis-experience-builder/ct-p/arcgis-experience-builder) |
+          </script>
+        </section>
+
         <!-- FEEDBACK SLIDE: -->
         <section
           data-markdown
           data-background="images/2026/dev/05.jpg"
           data-background-size="contain"
         ></section>
+
+        <section data-background="images/2026/dev/04.jpg">
+          <h2 style="text-align: right">Questions?</h2>
+        </section>
 
         <!-- SOCIAL CONNECT SLIDE: -->
         <section data-background="images/2026/dev/03.jpg" class="r-fit-text">
@@ -258,6 +506,12 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
+
+        // This is the standard for the Esri event projectors - if it's not
+        // working correctly for you or not working great for printing,
+        // remove these two lines:
+        width: 1920,
+        height: 1080,
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
